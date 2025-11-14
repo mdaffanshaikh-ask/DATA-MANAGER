@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Login - Data Manager</title>
+  <style>
+    /* (your CSS unchanged) */
+    .bg-video{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-1;filter:brightness(0.55) contrast(1.05) saturate(1.1)}
+    .login-box{position:relative;max-width:400px;margin:120px auto;padding:28px;background:rgba(16,18,24,.7);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);border-radius:14px;color:#f2f4f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    h1{margin:0 0 20px;font-weight:700;font-size:26px;text-align:center}
+    label{font-size:13px;color:#cbd2e0;margin-bottom:6px;display:block}
+    input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#f6f8fb;outline:none;margin-bottom:14px;transition:border-color .2s ease,background .2s ease}
+    input::placeholder{color:#aab4c3}
+    .btn{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(58,134,255,.85),rgba(58,134,255,.65));color:#fff;cursor:pointer;font-weight:600;font-size:15px;transition:transform .06s ease,box-shadow .15s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    .error{color:#ff6b6b;font-size:13px;margin-top:8px;text-align:center}
+  </style>
+</head>
+<body>
+  <video class="bg-video" src="samplevideo.mp4" autoplay muted loop playsinline></video>
+
+  <div class="login-box">
+    <h1>Login</h1>
+
+    <!-- keep id on form so JS can attach reliably -->
+    <form id="loginForm" novalidate>
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" placeholder="Enter username" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Enter password" required>
+
+      <button class="btn" type="submit">Login</button>
+      <div id="errorMsg" class="error" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <script>
+    // Attach handler to the form submit event (more reliable than inline onclick)
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // stop default submit/navigation
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      // simple client-side check (for demo only)
+      if (username === 'admin' && password === '123') {
+        // adjust this path if login.html is in a different folder
+        window.location.href = 'data/xyz.html';
+      } else {
+        document.getElementById('errorMsg').textContent = 'Invalid username or password';
+      }
+    });
+
+    // Optional: helpful function to test that JS runs
+    // Uncomment to debug: window.location.href = 'https://example.com';
+  </script>
+</body>
+</html>

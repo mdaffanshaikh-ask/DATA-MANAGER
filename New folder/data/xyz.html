@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Replace the src with your video file or URL -->
+  <video class="bg-video" src="samplevideo.mp4" autoplay muted loop playsinline></video>
+
+  <div class="app">
+    <h1>Data manager</h1>
+    
+    <!-- Create / update form -->
+    <form id="record-form">
+      <div>
+        <label for="firstName">First name</label>
+        <input id="firstName" name="firstName" type="text" placeholder="e.g., Ananya" required />
+      </div>
+      <div>
+        <label for="middleName">Middle name</label>
+        <input id="middleName" name="middleName" type="text" placeholder="(optional)"/>
+      </div>
+      <div>
+        <label for="lastName">Last name</label>
+        <input id="lastName" name="lastName" type="text" placeholder="e.g., Rao" required />
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number" min="0" max="150" placeholder="e.g., 29" required />
+      </div>
+      <div>
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" type="tel" placeholder="e.g., +91 98765 43210" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="e.g., ananya.rao@example.com" required />
+      </div>
+
+      <div class="actions full">
+        <button type="submit" class="btn primary" id="saveBtn">Add record</button>
+        <button type="button" class="btn warning" id="resetBtn">Reset</button>
+        
+      </div>
+    </form>
+
+    <!-- Records table -->
+    <div class="table-wrap">
+      <table id="recordsTable">
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>Middle name</th>
+            <th>Last name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th style="min-width:220px">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="recordsTbody">
+          <!-- Rows render here -->
+        </tbody>
+      </table>
+    </div>
+
+    
+  <div><br>
+  <!-- <div class="logout-btn"> -->
+    <button type="submit" class="btn primary" onclick="logout()">logout</button>
+  <!-- </div> -->
+  <script src="script.js"></script>
+</body>
+</html>
